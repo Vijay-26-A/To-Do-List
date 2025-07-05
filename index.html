@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="container">
+    <input id="input">
+    <button class="btn" onclick="add()">Add Task</button>
+    <ul id="listitem"></ul>
+    </div>
+    <script>
+        let input = document.getElementById("input")
+        let listitem = document.getElementById("listitem")
+
+        function add(){
+            let li = document.createElement("li")
+            li.innerHTML=input.value + "<button class='delebtn' onclick='deleteitem(event)'>Button</button>"
+            listitem.appendChild(li)
+            if(input.value === ""){
+                alert('Enter the Task first')
+            }
+            input.value = ""
+        }
+        function deleteitem(event){
+            event.target.parentElement.remove()
+        }
+    </script>
+</body>
+</html>
